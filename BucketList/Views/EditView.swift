@@ -6,16 +6,11 @@
 //
 
 import SwiftUI
- 
 
 struct EditView: View {
-
     @Environment(\.dismiss) var dismiss
-    
     var onSave: (Location) -> Void
-
     @StateObject private var viewModel: ViewModel
-    
     var body: some View {
         NavigationStack {
             Form {
@@ -47,6 +42,7 @@ struct EditView: View {
                     onSave(newLocation)
                     dismiss()
                 }
+				.padding()
             }
             .task {
                 await viewModel.fetchNearbyPlaces()

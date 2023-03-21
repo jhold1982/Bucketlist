@@ -4,13 +4,18 @@
 //
 //  Created by Justin Hold on 11/2/22.
 //
+
 import Foundation
 import LocalAuthentication
 import MapKit
+
 extension ContentView {
     @MainActor class ViewModel: ObservableObject {
         @Published var isUnlocked = false
-        @Published var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 50, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 25, longitudeDelta: 25))
+        @Published var mapRegion = MKCoordinateRegion(
+			center: CLLocationCoordinate2D(latitude: 50, longitude: 0),
+			span: MKCoordinateSpan(latitudeDelta: 25, longitudeDelta: 25)
+		)
         @Published private(set) var locations: [Location]
         @Published var selectedPlace: Location?
         @Published var authenticationError = "UnknownError"
